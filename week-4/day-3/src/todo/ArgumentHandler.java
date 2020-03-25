@@ -5,6 +5,7 @@ import java.io.IOException;
 public class ArgumentHandler {
     FileReader fileReader = new FileReader();
     AddNewTask addNewTask = new AddNewTask();
+    LineRemoval lineRemoval = new LineRemoval();
 
     public ArgumentHandler() {
     }
@@ -16,6 +17,12 @@ public class ArgumentHandler {
             fileReader.fileReader();
         } else if (args[0].equals("-a")){
             addNewTask.addNewTask();
+        } else if (args[0].equals(("-r"))){
+            try{
+                lineRemoval.removeLine(Integer.valueOf(args[1]));
+            }catch (NumberFormatException e){
+                System.out.println("Unable to remove: index is not a number");
+            }
         }
     }
     public void argumentIsZero(){
