@@ -11,19 +11,22 @@ public class ArgumentHandler {
     }
 
     public void argumentHandler(String[] args) throws IOException {
-        if (args.length == 0) {
-            argumentIsZero();
-        } else if (args[0].equals("-l")) {
-            fileReader.fileReader();
-        } else if (args[0].equals("-a")){
-            addNewTask.addNewTask();
-        } else if (args[0].equals(("-r"))){
-            try{
-                lineRemoval.removeLine(Integer.valueOf(args[1]));
-            }catch (NumberFormatException e){
-                System.out.println("Unable to remove: index is not a number");
-            }
-        }
+            if (args.length == 0) {
+                argumentIsZero();
+            } else if (args[0].equals("-l")) {
+                fileReader.fileReader();
+            } else if (args[0].equals("-a")){
+                addNewTask.addNewTask();
+            } else if (args[0].equals(("-r"))){
+                try{
+                    lineRemoval.removeLine(Integer.valueOf(args[1]));
+                }catch (NumberFormatException e){
+                    System.out.println("Unable to remove: index is not a number");
+                }
+            }else
+                System.out.println("Unsupported argument");
+                argumentIsZero();
+
     }
     public void argumentIsZero(){
         System.out.println("Command line arguments:\n" +
